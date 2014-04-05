@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Polcomp</title>
+ 	<% # = stylesheet_link_tag    "application", :media => "all" %>
+  	<%= javascript_include_tag "application" %>
+  	<%= csrf_meta_tags %>
+  	
+  	<meta charset="utf-8">  	
+  	<meta name="description" content="">
+  	<meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link href="/assets/bootstrap-theme.css" rel="stylesheet">-->
+    <link href="/assets/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/assets/bootstrap.css" rel="stylesheet">
+    <!--<link href="/assets/bootstrap.min.css" rel="stylesheet">-->
+  	<link href="/assets/style.css" rel="stylesheet">
+    <link href="/assets/ui.css" rel="stylesheet">
+    <link href="/assets/custom.css" rel="stylesheet">
+  	<link href="/assets/dropdownStyle.css" rel="stylesheet">
+  	<!-- <link href="/assets/bootstrap-select.css" rel="stylesheet">-->
+  	<link href="/assets/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/assets/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <script src="/assets/parsley.js"></script>
+    <script src="/assets/ui.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
+    <script src="/assets/parsley.js"></script>
+     <!--[if lt IE 9]>
+      <script src="/assets/html5shiv.js"></script>
+      <script src="/assets/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!--<div class="page-left-container">&nbsp;</div>-->
+<!--<div class="container" id="page-middle-container"> --> 
+	<div class="container">   
+    <div class="row">
+      <div class="col-xs-12 hidden-xs">
+          <img src="/assets/advisenlogo.png">
+      </div>     
+    </div>
+
+  <div class="clearSpace10">&nbsp;</div>
+
+  <% if current_user %>
+    <div class="container">    
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row" style="border-radius:6px;background-color:#2c3e50;">&nbsp;
+
+            <div class="col-xs-1">
+              <div class="btn-group" style="margin-top:0;margin-left:-10%;position:relative">
+                <button type="button" class="btn btn-DropDown dropdown-toggle" data-toggle="dropdown"><%= getMenuLabel(controller) %> &nbsp; <span class="caret" style="border-top: 8px solid #fff;"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to "Add Policy Form", "/forms/new"%></li>
+                  <li><%= link_to "Forms Tracking", search_path%></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Status", statuses_path %></li>
+                  <li><%= link_to "Policy Type", policy_types_path %></li>
+                  <li><%= link_to "Document Type", document_types_path %></li>
+                  <li><%= link_to "Submission Type", submission_types_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Generate Report", generateReport_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Manage Users", manageusers_path %></li>
+                  <li><%= link_to "Active Sessions", showsessions_path %></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xs-7">&nbsp;</div>
+            
+            <div class="col-xs-3 pull-right">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <label style="color: #c8dfff;font-size:14px;margin-top:40%;"><i class="glyphicon glyphicon-user"></i></label>
+                    </div>
+
+                    <div class="col-xs-10" style="margin-top:2%;">
+                      <label class="labeluser"><%= current_user.firstname + " " + current_user.lastname %>&nbsp;</label>
+                      <label class="labeltitle">&nbsp; | &nbsp; <i class="icon-time"></i> <a onmouseover="this.style.cursor='pointer'" onclick="logoutSession(<%=current_user.id%>)">Log Out</a></label>                                            
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <% else %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row" style="border-radius:6px;background-color:#2c3e50;height:33px;">&nbsp;
+            <div class="col-xs-8">&nbsp;</div>              
+            <div class="col-xs-4">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

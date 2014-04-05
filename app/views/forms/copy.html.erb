@@ -1,0 +1,33 @@
+<br />
+<div class="container" style="border-radius:6px; background-color:#E2E9F5;">
+  <h3>Clone Form Page</h3>
+  <div class="clearSpace10"></div>
+<div id="resultDiv" class="container">
+	
+	<%= render 'form' %>
+	
+ 	<div class="clearSpace10"></div>
+	
+	<div class="container">
+  		<div class="row">
+      		<div class="col-xs-8 hidden-xs">
+        		&nbsp;
+      		</div>
+      		<div class="col-xs-2">
+        		<button type="button" class="btn btn-default-cancel btn-sm btn-group-justified" onclick="window.location = '/forms/search'">Go to List page</button>
+      		</div>
+      		<div class="col-xs-2">
+        		<button type="button" class="btn btn-default-save btn-sm btn-group-justified pull-right" id="form_save" onclick="createForm('<%= session[:session_id] %>', true)">Save</button>
+      		</div>
+    	</div>
+
+    </div>
+
+</div>
+	  <br />
+<script>
+	$(document).ready(function(){
+		processData(<%= params[:id] %>, '<%= session[:session_id]%>', true);
+	});
+</script>
+</div>

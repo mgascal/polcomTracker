@@ -1,0 +1,219 @@
+textarea {
+	overflow: auto;
+	resize: none;
+}
+
+label{
+	font-weight: normal;
+	text-align: right;
+}
+
+.banner-color {
+	color: #ffffff;
+	background-color: #2c3e50;
+	border-radius: 4px;
+}
+
+.clearSpace10 {
+  height: 10px;
+}
+
+p.well-sm {
+  padding: 0px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+#form_FORM_NO,
+#form_FORM_ID,
+#form_REVISED_ITEM_NO,
+#form_NEW_FORM_ID
+{
+  width: 45.5%;
+}
+
+.form-control {
+  height: 30px;
+  padding: 3px 12px;
+}
+
+#dropdown-menu_form_TYPE_OF_DOCUMENT,
+#dropdown-menu_form_TYPE_OF_POLICY,
+#dropdown-menu_form_LOB,
+#dropdown-menu_form_TYPE_OF_SUBMISSION,
+#uldrop
+ {
+  min-width: 301px;
+}
+
+#form_COMMENTS,
+#form_NEW_POLICY_NAME
+{
+  height: 95px;
+}
+
+.srch-bg-color{
+  padding: 15px 0 15px 0; 
+  background-color: #DFDFDF;
+}
+
+.btn-default-save {
+  color: #ffffff;
+  background-color: #2c3e50;
+  border-color: #cccccc;
+}
+
+.btn-default-save:hover,
+.btn-default-save:focus,
+.btn-default-save:active,
+.btn-default-save.active,
+.open .dropdown-toggle.btn-default-save {
+  color: #ffffff;
+  background-color: #1A242F;
+  border-color: #adadad;
+}
+
+.btn-default-cancel {
+  color: #ffffff;
+  background-color: #0C76DF;
+  border-color: #cccccc;
+}
+
+.btn-default-cancel:hover,
+.btn-default-cancel:focus,
+.btn-default-cancel:active,
+.btn-default-cancel.active,
+.open .dropdown-toggle.btn-default-cancel {
+  color: #ffffff;
+  background-color: #245BDB;
+  border-color: #adadad;
+}
+
+.col-xs-1 {
+  width: 9.090909090909091%;
+}
+
+.col-xs-offset-10 {
+    margin-left: 90%;
+}
+
+.col-xs-offset-9{
+  margin-left: 80%;
+}
+
+
+.btn-default-delete {
+  color: #ffffff;
+  background-color: #2c3e50;
+  border-color: #cccccc;
+}
+
+.btn-default-delete:hover,
+.btn-default-delete:focus,
+.btn-default-delete:active,
+.btn-default-delete.active,
+.open .dropdown-toggle.btn-default-delete {
+  color: #ffffff;
+  background-color: #1A242F;
+  border-color: #adadad;
+}
+
+.btn-default-addNew {
+  color: #ffffff;
+  background-color: #2c3e50;
+  border-color: #cccccc;
+}
+
+.btn-default-addNew:hover,
+.btn-default-addNew:focus,
+.btn-default-addNew:active,
+.btn-default-addNew.active,
+.open .dropdown-toggle.btn-default-addNew {
+  color: #ffffff;
+  background-color: #1A242F;
+  border-color: #adadad;
+}
+
+.btn-default-delete2 {
+  color: #ffffff;
+  background-color: #C3C3C3;
+  border-color: #cccccc;
+}
+
+.btn-default-delete2:hover,
+.btn-default-delete2:focus,
+.btn-default-delete2:active,
+.btn-default-delete2.active,
+.open .dropdown-toggle.btn-default-delete2 {
+  color: #ffffff;
+  background-color: #C3C3C3;
+  border-color: #adadad;
+}
+
+.btn-DropDown {
+  background-color: #2c3e50;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.btn-DropDown:hover,
+.btn-DropDown:focus,
+.btn-DropDown:active,
+.btn-DropDown.active,
+.open .dropdown-toggle.btn-DropDown {
+  color: #ffffff;
+  background-color: #2c3e50;
+  border-color: #adadad;
+}
+
+.rowGray:hover,
+.rowGray:focus,
+.rowGray:active,
+.rowGray.active{
+  background-color: #0076EB;
+            cursor: pointer;
+            cursor: hand;
+}
+
+.rowWhite:hover,
+.rowWhite:focus,
+.rowWhite:active,
+.rowWhite.active{
+  background-color: #0076EB;
+            cursor: pointer;
+            cursor: hand;
+}
+
+.tableHeader,
+.tableHeader:hover,
+.tableHeader:focus,
+.tableHeader:active,
+.tableHeader.active{
+            cursor: pointer;
+            cursor: hand;
+}
+
+.rowGray1 {
+  font-size: 11px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  height: 100%;
+  background-color: #DDEEFF;
+}
+
+.rowWhite1 {
+  font-size: 11px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+
+
+.parsley-container{
+  font-size: 10px;
+  color: #db2929;
+}

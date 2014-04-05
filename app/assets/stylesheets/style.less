@@ -1,0 +1,402 @@
+// RADIUS
+@defaultRadius	:	5px;
+
+// COLORS
+@black			:	#000000;
+@blue 			: 	#2C3E50;
+@red 			:	#FF0000;
+@red2			: 	#F85B5B;
+@red3			:   #F16B74;
+@blue1			:	#3875B1;
+@darkblue		:	#1A242F;
+@navyblue		:	#B7B7B7;
+@skyblue		:	#0C76DF;
+@lightblue1		:	#ECF0F1;
+@lightblue2		:	#AACCFF;
+@lightblue3		:   #DAE9FF;
+@lightblue4		:	#E2E9F5;
+@fadeGreen		:	#95A5A6;
+@lightgreen     :	#C8DFFF;
+@lightgreen2	:	#BAC4C5;
+@white  		:	#FFFFFF;
+@gray           :	#777777;
+@gray2			:	#6F6F6F;
+@gray3			:   #9C9D9D;
+@gray4			: 	#DFDFDF;
+@font_disable	:	#B7B7B7;
+
+// FONTS
+@font_default	: 	Arial, Helvetica, Sans-serif;
+@font_bold		:	bold;
+@font_medium	:	medium;
+
+// ALIGNMENTS
+@center			:	center;
+@right			:	right;
+@left           :   left;
+
+
+// DEFAULTS
+.textAlign( @textAlign ){
+	text-align : @textAlign
+}
+
+.float(@location){
+	float : @location;
+}
+
+.fontWeight( @fontweight ){
+	font-weight	: @fontweight;	
+}
+
+.fontFamily( @fontFamily ){
+	font-family	: @fontFamily;	
+}
+
+.fontSize( @size ){
+	font-size	: @size;
+}
+
+.fontColor( @fontColor ){
+	color : @fontColor;
+}
+
+.borderStyle(@thickness, @border-style, @border-color) {
+	border: @thickness @border-style @border-color;
+}
+
+.backgroundColor(@color){
+	background-color : @color;	
+}
+
+.marginTop( @marginTop ) {
+	margin-top : @marginTop;	
+}
+
+.marginLeft( @marginLeft ) {
+	margin-left : @marginLeft;	
+}
+
+
+// FUNCTIONS
+.RoundedShape( @radius:@defaultRadius ) {    
+	-webkit-border-radius	:	@radius;       
+	-moz-border-radius		:	@radius;            
+	border-radius           :	@radius;  
+}
+
+.page(@fontSize, @fontColor, @fontWeight) {
+	.fontFamily   ( @font_default );
+	.fontSize     ( @fontSize );
+	.fontWeight   ( @fontWeight );
+	.fontColor    ( @fontColor );
+	.textAlign    ( @center );
+}
+
+
+// IMAGE
+img{
+	.marginTop( 5px );
+}
+
+a{
+	text-decoration:none;
+}
+
+
+// PAGE - FONT STYLES
+.pageTitle {
+	.page( 36px, @blue, @font_bold );
+}
+
+.pageFooter {
+	.page( 14px, @black, @font_medium );	
+}
+
+.pageErrorLogin {
+	.page( 22px, @white, @font_bold );
+	.errorMsgContainer;
+}
+
+
+// FORM LABEL
+.labeluser{
+	.fontFamily ( @font_default );
+	.fontSize   ( 14px );
+    .fontColor  ( @white );
+    .float		( @left );
+}
+
+.labeltitle{
+    .fontFamily ( @font_default );
+    .fontSize   ( 14px );
+    .fontColor  ( @lightgreen );
+    .float		( @left );
+}
+
+.formTitle{
+	height 			 	 : 30px;
+	float			 	 : @left;
+	background-color 	 : @lightblue2;
+	border-bottom 	 	 : 0px solid #75AAFA;
+	border-right		 : 1px solid #75AAFA;
+	border-left			 : 1px solid #75AAFA;
+	border-top			 : 1px solid #75AAFA;
+	.page(14px, @darkblue, normal);
+}
+
+.formPageStyle{
+	margin-top			 : 1px;
+	height 				 : 300px;
+	width 				 : 100%;
+	border-left 		 : 1px solid #75AAFA;
+	border-right		 : 1px solid #75AAFA;
+	border-bottom 		 : 1px solid #75AAFA;
+	background-color 	 : #FFFFFF;
+}
+
+// FORM INPUT
+.txtbox {
+	.borderStyle(1px, solid, @gray);
+	 width  : 90%;	
+}
+
+.txtbox2 {
+	.borderStyle(1px, solid, @lightblue2);
+	 width  : 90%;
+	 height : 25px;
+}
+
+
+// BUTTON
+.btn-Default( @bgColor, @borderColor ) {
+	.borderStyle 	 ( 1px, solid, @borderColor );
+	.fontFamily   	 ( @font_default );
+	.fontSize     	 ( 14px );
+	.fontColor    	 ( @white );
+	.backgroundColor ( @bgColor );
+	.RoundedShape(2px);
+	 width  : 95px;
+	 height : 30px;
+}
+
+.btn-sm-Default( @bgColor, @borderColor ) {
+	.borderStyle 	 ( 1px, solid, @borderColor );
+	.fontFamily   	 ( @font_default );
+	.fontSize     	 ( 12px );
+	.fontColor    	 ( @white );
+	.backgroundColor ( @bgColor );
+	.RoundedShape(2px);
+	 width  : 95px;
+}
+
+.btn-sm-disabled( @bgColor, @borderColor ) {
+	.borderStyle 	 ( 1px, solid, @borderColor );
+	.fontFamily   	 ( @font_default );
+	.fontSize     	 ( 12px );
+	.fontColor    	 ( @font_disable );
+	.backgroundColor ( @bgColor );
+	.RoundedShape(2px);
+	 width  : 95px;
+}
+
+.btn-s-disabled{
+	.btn-sm-disabled( @gray4, @gray4 );
+}
+
+.btn-blue1-default {
+	.btn-Default( @blue1, @blue1 );
+}
+
+.btn-blue-default {
+	.btn-Default( @blue, @blue );
+}
+
+.btn-gray-default {
+	.btn-Default( @fadeGreen, @fadeGreen );
+}
+
+.btn-sm-blue-default{
+	.btn-sm-Default( @blue, @blue );
+}
+
+.btn-sm-lightgreen-default{
+	.btn-sm-Default( @lightgreen2, @lightgreen2 );
+}
+
+.btn-DropDown {
+	background-color:@skyblue;
+	color:@white;
+	.RoundedShape(5px);
+}
+
+.btn-DropDown:hover{
+	background-color:@darkblue;
+	color:@white;
+	.RoundedShape(5px);
+}
+
+
+// DIV - CONTAINERS
+#sessiondata {
+	width 			 : 100%;
+	height 			 : 100%;
+	border-bottom	 : 1px solid #75AAFA;	
+}
+
+.errorMsgContainer{
+	width 			 : 56%;
+	height 			 : 30px;
+	margin 			 : auto;
+	background-color : @red3;
+}
+
+.rdata{
+	width 			 : 100%;
+	height 			 : 25px;
+	float 			 : left;
+	border-bottom 	 : 0px solid #75AAFA;
+}
+
+.form-holder {
+	.borderStyle 	 (1px, solid, @blue);
+	background-color : @lightblue1;
+	width 			 : 56%;
+	float			 : @left;
+}
+
+.form-holder-med {
+	background-color : #E2E9F5;
+	width 			 : 97%;
+	height 			 : 100%;
+	padding			 : 20px;
+	margin 			 : auto;
+	.page(13px, @black, medium);
+}
+
+.form-data-container{
+	background-color :  @lightblue4;		
+	width 			 :	100%;
+	height 			 :  30px;
+}
+
+.form-col-header-container-corner-left{
+	width 			 : 20%;
+	height 			 : 30px;
+	float			 : @left;
+	background-color : @lightblue2;
+	border-right	 : 0px solid #0076EB;
+	.page(12px, @darkblue, bold);
+}
+
+.form-col-header-container{
+	height 			 : 30px;
+	float			 : @left;
+	background-color : @lightblue2;
+	border-bottom 	 : 1px solid #75AAFA;
+	border-top 		 : 1px solid #75AAFA;
+	border-left		 : 1px solid #75AAFA;
+	.page(12px, @darkblue, bold);
+}
+
+.form-col-button-container{
+	height 			 : 30px;
+	float			 : @left;
+	border-bottom 	 : 0px solid #75AAFA;
+	.page(12px, @darkblue, bold);
+}
+
+.form-col-data-container{
+	width 			 : 20%;
+	height 			 : 30px;
+	float			 : @left;
+	background-color : @navyblue;
+	border-left 	 : 1px solid #E7E7E7;
+	.page(12px, @darkblue, bold);
+}
+
+.hasMarginTop {
+	margin-top		 : 7px;
+}
+
+.hasMarginTopLeft {
+	margin-top		 : 3px;
+	text-align		 : center;
+}
+
+.bluebar-link-holder {	
+	.textAlign 		 ( @right );
+	.fontColor 		 ( @white );
+	.backgroundColor ( @blue );
+	min-width:100%;
+	height:45px;
+	position:relative;
+}
+
+.page-left-container{
+	width : 22%;
+	float : @left;
+}
+
+.page-right-container{
+	width : 21%;
+}
+
+#page-middle-container{
+	width 			 : 56%;
+	min-width		 : 895px;
+	min-height		 : 100%;
+	float			 : @left;	
+	background-color : @white;
+	.borderStyle 	 (1px, solid, @navyblue);
+}
+
+.obj-Holder{
+	margin-top : 8%;
+}
+
+
+// DIV - EMPTY
+.clearSpace10 {
+	height : 10px;
+}
+
+.clearSpace15 {
+	height : 15px;
+}
+
+.clearSpace20 {
+	height : 20px;
+}
+
+.clearSpace25 {
+	height : 25px;
+}
+
+.clearSpace30 {
+	height : 30px;
+}
+
+.clearSpace35 {
+	height : 35px;
+}
+
+.clearSpace40 {
+	height : 40px;
+}
+
+.clearSpace45 {
+	height : 45px;
+}
+
+.clearSpace50 {
+	height : 50px;
+}
+
+.clearSpace55 {
+	height : 55px;
+}
+
+.clearSpace60 {
+	height : 60px;
+}

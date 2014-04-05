@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  KSQ_SEQ_NO: 1
+  MEMBERSHIP: MyString
+
+two:
+  KSQ_SEQ_NO: 1
+  MEMBERSHIP: MyString

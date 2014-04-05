@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Password hash:</b>
+  <%= @user.password_hash %>
+</p>
+
+<p>
+  <b>Password salt:</b>
+  <%= @user.password_salt %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @user.status %>
+</p>
+
+<p>
+  <b>Create date:</b>
+  <%= @user.create_date %>
+</p>
+
+<p>
+  <b>Create by:</b>
+  <%= @user.create_by %>
+</p>
+
+<p>
+  <b>Updated date:</b>
+  <%= @user.updated_date %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @user.updated_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

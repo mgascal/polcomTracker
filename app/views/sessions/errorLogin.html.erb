@@ -1,0 +1,45 @@
+  <div class="clearSpace30">&nbsp;</div>
+  <div class="pageTitle">Policy Comparison Tracking Apps</div>
+
+  <div class="clearSpace10">&nbsp;</div>
+
+  <div class="pageErrorLogin">Incorrect Username / Password</div>
+
+  <div class="clearSpace25">&nbsp;</div>
+
+  <div style="width:100%;">
+    <div class="page-left-container">&nbsp;</div>
+    <div class="form-holder">
+
+      <div class="page-left-container" style="width:15%;">&nbsp;</div>
+      <div class="form-holder" style="width:70%;border:0px;">
+          
+          <%= form_tag sessions_path do %>
+          <div class="clearSpace20">&nbsp;</div>
+
+          <div style="width:100%;border:0px solid #FF0000;">
+            <div style="width:30%;height:25px;float:left;"><%= label_tag :"Username : " %></div>
+            <div style="width:69%;height:25px;float:left;"><%= text_field_tag :username, params[:username], :id => "txtusername", :class => "txtbox", :value => "kadarna" %></div>
+          </div> 
+                    
+          <div style="width:100%;border:0px solid #FF0000;">
+            <div style="width:30%;height:25px;float:left;"><%= label_tag :"Password : " %></div>
+            <div style="width:69%;height:25px;float:left;"><%= password_field_tag :password, params[:password], :id => "txtpassword", :class => "txtbox" %></div>
+          </div>
+
+          <div style="width:100%;border:0px solid #FF0000;">
+            <div style="width:30%;height:25px;float:left;">&nbsp;</div>
+            <div style="width:69%;height:25px;float:left;"><%= submit_tag "Login", :class => "btn btn-large btn-primary" %></div>
+          </div>
+          
+          <div class="clearSpace20">&nbsp;</div>
+          <% end %>
+
+      </div>
+      <div class="page-right-container" style="width:14%;">&nbsp;</div>
+
+    </div>
+    <div class="page-right-container">&nbsp;</div>      
+  </div>
+
+  <div class="clearSpace20">&nbsp;</div>

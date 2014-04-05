@@ -1,0 +1,25 @@
+<%= form_for(@proprietary) do |f| %>
+  <% if @proprietary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proprietary.errors.count, "error") %> prohibited this proprietary from being saved:</h2>
+
+      <ul>
+      <% @proprietary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :KSQ_SEQ_NO %><br />
+    <%= f.number_field :KSQ_SEQ_NO %>
+  </div>
+  <div class="field">
+    <%= f.label :MEMBERSHIP %><br />
+    <%= f.text_field :MEMBERSHIP %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

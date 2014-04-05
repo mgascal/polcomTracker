@@ -1,0 +1,41 @@
+	<div class="form-holder-med" style="height:100%;">
+		<div></div>
+		<div id="sessiondata" style="width:100%;height:100%;border-bottom:1px solid #75AAFA;">
+			<div class="form-data-container" style="width:100%;height:25px;">
+				<div class="form-col-header-container" style="width:9%;border-top:1px solid #75AAFA;border-left:1px solid #75AAFA;"><div class="hasMarginTop">ID</div></div>
+				<div class="form-col-header-container" style="width:15%;border-top:1px solid #75AAFA;border-left:1px solid #75AAFA;"><div class="hasMarginTop">USERNAME</div></div>
+				<div class="form-col-header-container" style="width:30%;border-top:1px solid #75AAFA;border-left:1px solid #75AAFA;"><div class="hasMarginTop">SESSION ID</div></div>
+				<div class="form-col-header-container" style="width:18%;border-top:1px solid #75AAFA;border-left:1px solid #75AAFA;"><div class="hasMarginTop">TIME STARTED</div></div>
+				<div class="form-col-header-container" style="width:13%;border-top:1px solid #75AAFA;border-left:1px solid #75AAFA;border-right:1px solid #75AAFA;"><div class="hasMarginTop">STATUS</div></div>
+				<div class="form-col-button-container" style="width:15%;"><div class="hasMarginTop">&nbsp;</div></div>				
+			</div>
+
+			<% @sessions.each do |session| %>		
+			<div class="rdata" style="width:100%;height:25px;float:left;border-bottom:0px solid #75AAFA;">
+				<div style="width:9%;height:25px;float:left;border-bottom:0px solid #75AAFA;border-left:1px solid #75AAFA;"><div class="hasMarginTopLeft"><%= User.find(session.user_id).id %></div></div>
+				<div style="width:15%;height:25px;float:left;"><div class="hasMarginTopLeft"><%= User.find(session.user_id).username %></div></div>
+				<div style="width:30%;height:25px;float:left"><div class="hasMarginTopLeft"><%= session.session_id %></div></div>
+				<div style="width:18%;height:25px;float:left"><div class="hasMarginTopLeft"><%= session.time_started%></div></div>
+				<div style="width:13%;height:25px;float:left;border-right:1px solid #75AAFA;"><div class="hasMarginTopLeft"><%= session.status%></div></div>	
+				<div style="width:15%;height:25px;float:left;background-color:#E2E9F5">
+					<div class="hasMarginTopLeft">		
+						<%
+							if(session.session_id == request.session_options[:id])
+						%>
+							<div class="btn-s-disabled" style="margin:auto;" onmouseover="this.style.cursor='default'">End Session</div>
+						<%
+							else
+						%>
+							<button type="button" onclick="deleteSession('<%= session.session_id %>')" class="btn-sm-lightgreen-default">End Session</button>
+						<%	
+							end
+						%>
+					</div>
+				</div>
+			</div>
+			<% end %> <br>
+		</div>		
+		<div>&nbsp;</div>
+	</div>
+
+	<div class="clearSpace20">&nbsp;</div>

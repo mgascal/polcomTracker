@@ -1,0 +1,35 @@
+<div class="clearSpace20"></div>
+<div id="resultDiv" class="container" style="border-radius:6px; background-color:#E2E9F5;">
+  <h3>Add New Form Page</h3>
+	<div class="clearSpace20"></div>
+	<%= render 'form' %>
+	<div class="clearSpace30"></div>
+
+  	<div  class="container">
+	
+  		<div class="row">
+      		<div class="col-xs-8 hidden-xs">
+        		&nbsp;
+      		</div>
+      		<div class="col-xs-2">
+        		<button type="button" class="btn btn-default-cancel btn-sm btn-group-justified" onclick="window.location='/forms/search'">Go to List page</button>
+  			</div>
+      		<div class="col-xs-2">
+        		<button type="button" class="btn btn-default-save btn-sm btn-group-justified" id="form_save" onclick="createForm('<%= session[:session_id] %>')">Save</button>
+      		</div>
+    	</div>
+  	</div>
+	
+	  <br />
+</div>
+<script>
+	var d = new Date();
+	date = (d.getMonth() + 1) < 10 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1) ;
+	date += "/";
+	date += (d.getDate()) < 10 ? "0" + (d.getDate()) : (d.getDate());
+	date += "/";
+	date += d.getFullYear();
+	//alert(date);
+	$("input[type='date']").val(date);
+</script>
+

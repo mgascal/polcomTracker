@@ -1,0 +1,86 @@
+<div parsley-validate parsley-bind> 
+    <input type="text" parsley-type="email" parsley-trigger="change" required />
+</div>
+
+
+<h1>Listing forms</h1>
+
+<table>
+  <tr>
+    <th>Seq no</th>
+    <th>Form id</th>
+    <th>Revised item no</th>
+    <th>Status</th>
+    <th>Policy name</th>
+    <th>Form label</th>
+    <th>Form no</th>
+    <th>Edition date</th>
+    <th>Type of policy</th>
+    <th>Lob</th>
+    <th>Type of document</th>
+    <th>Submitter company</th>
+    <th>Submitter name</th>
+    <th>Submitters email</th>
+    <th>Client reference file</th>
+    <th>Date received</th>
+    <th>Due date</th>
+    <th>Mapping completed</th>
+    <th>Mapped by</th>
+    <th>Parsing completed</th>
+    <th>Loaded</th>
+    <th>New form id</th>
+    <th>Text file name</th>
+    <th>New text file name</th>
+    <th>New policy name</th>
+    <th>Comments</th>
+    <th>Create date</th>
+    <th>Create by</th>
+    <th>Updated date</th>
+    <th>Updated by</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @forms.each do |form| %>
+  <tr>
+    <td><%= form.SEQ_NO %></td>
+    <td><%= form.FORM_ID %></td>
+    <td><%= form.REVISED_ITEM_NO %></td>
+    <td><%= form.STATUS %></td>
+    <td><%= form.POLICY_NAME %></td>
+    <td><%= form.FORM_LABEL %></td>
+    <td><%= form.FORM_NO %></td>
+    <td><%= form.EDITION_DATE %></td>
+    <td><%= form.TYPE_OF_POLICY %></td>
+    <td><%= form.LOB %></td>
+    <td><%= form.TYPE_OF_DOCUMENT %></td>
+    <td><%= form.SUBMITTER_COMPANY %></td>
+    <td><%= form.SUBMITTER_NAME %></td>
+    <td><%= form.SUBMITTERS_EMAIL %></td>
+    <td><%= form.CLIENT_REFERENCE_FILE %></td>
+    <td><%= form.DATE_RECEIVED %></td>
+    <td><%= form.DUE_DATE %></td>
+    <td><%= form.MAPPING_COMPLETED %></td>
+    <td><%= form.MAPPED_BY %></td>
+    <td><%= form.PARSING_COMPLETED %></td>
+    <td><%= form.LOADED %></td>
+    <td><%= form.NEW_FORM_ID %></td>
+    <td><%= form.TEXT_FILE_NAME %></td>
+    <td><%= form.NEW_TEXT_FILE_NAME %></td>
+    <td><%= form.NEW_POLICY_NAME %></td>
+    <td><%= form.COMMENTS %></td>
+    <td><%= form.CREATE_DATE %></td>
+    <td><%= form.CREATE_BY %></td>
+    <td><%= form.UPDATED_DATE %></td>
+    <td><%= form.UPDATED_BY %></td>
+    <td><%= link_to 'Show', form %></td>
+    <td><%= link_to 'Edit', edit_form_path(form) %></td>
+    <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Form', new_form_path %>

@@ -1,0 +1,65 @@
+<div class="clearSpace20">&nbsp;</div>
+
+<div class="container" style="border-radius:6px; background-color:#E2E9F5;">
+	
+	<div class="row">
+		<div class="col-lg-11 tableHeader" style="border-top: 1px solid #0076EB; border-right: 1px solid #0076EB; border-left: 1px solid #0076EB; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom: 1px solid #0076EB;">
+			<div class="row">
+				<div class="col-xs-2"><p class="well-sm">USER ID</p>
+				</div>
+				<div class="col-xs-2"><p class="well-sm">USERNAME</p>
+				</div>
+				<div class="col-xs-2"><p class="well-sm">EMAIL</p>
+				</div>
+				<div class="col-xs-2"><p class="well-sm">STATUS</p>
+				</div>
+				<div class="col-xs-2"><p class="well-sm">UPDATED DATE</p>
+				</div>
+				<div class="col-xs-2"><p class="well-sm">UPDATED BY</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-1">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default-addNew btn-sm glyphicon glyphicon-plus-sign" onclick="window.location = '/users/new';"></button>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+			
+	<div class="row">
+		<% white = true %>
+		<% @users.each do |user| %>	
+			<div class="<%= 'col-lg-11' + ((white = !white)? ' rowGray' : ' rowWhite') %>" style="<%= 'border-right: 1px solid #0076EB; border-left: 1px solid #0076EB;' + ((user.id == @users.last.id)? ' border-bottom: 1px solid #0076EB; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;' : '' )%>">
+				<div class="row">
+					<div class="col-xs-2"><p class="well-sm"><%= user.id %><p>
+					</div>
+					<div class="col-xs-2"><p class="well-sm"><%= user.username %></p>
+					</div>
+					<div class="col-xs-2"><p class="well-sm"><%= user.email %></p>
+					</div>
+					<div class="col-xs-2"><p class="well-sm"><%= user.status %></p>
+					</div>
+					<div class="col-xs-2"><p class="well-sm"><%= user.updated_date %></p>
+					</div>
+					<div class="col-xs-2"><p class="well-sm"><%= user.updated_by %></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default-addNew btn-sm glyphicon glyphicon-trash" onclick=""></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		<% end %>	
+	</div>	
+</div>
+<div class="clearSpace20">&nbsp;</div>

@@ -1,0 +1,25 @@
+<h1>Listing proprietaries</h1>
+
+<table>
+  <tr>
+    <th>Ksq seq no</th>
+    <th>Membership</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @proprietaries.each do |proprietary| %>
+  <tr>
+    <td><%= proprietary.KSQ_SEQ_NO %></td>
+    <td><%= proprietary.MEMBERSHIP %></td>
+    <td><%= link_to 'Show', proprietary %></td>
+    <td><%= link_to 'Edit', edit_proprietary_path(proprietary) %></td>
+    <td><%= link_to 'Destroy', proprietary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Proprietary', new_proprietary_path %>

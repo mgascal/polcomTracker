@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @status.STATUS %>
+</p>
+
+<p>
+  <b>Create date:</b>
+  <%= @status.CREATE_DATE %>
+</p>
+
+<p>
+  <b>Create by:</b>
+  <%= @status.CREATE_BY %>
+</p>
+
+<p>
+  <b>Updated date:</b>
+  <%= @status.UPDATED_DATE %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @status.UPDATED_BY %>
+</p>
+
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>

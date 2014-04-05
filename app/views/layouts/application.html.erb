@@ -1,0 +1,10 @@
+
+
+<%= render :partial => "layouts/header" %>
+
+<!-- Add _<controller_name>.html.erb for layout of each controller-->
+<!-- rescue nil is for catching error if the layout doesn't exists-->
+
+<%= yield %>
+
+<%= render :partial => "layouts/footer" %>

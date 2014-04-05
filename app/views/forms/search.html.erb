@@ -1,0 +1,71 @@
+<script>
+	
+	$(document).ready(function(){
+		loadSearchForms("<%= session[:session_id] %>");
+	});
+</script>
+
+<script>
+    $(function() {
+    $( ".datepicker" ).datepicker();
+    }); 
+</script>
+
+<!-- search bar -->
+	<div class="row">
+		<div class="col-xs-12">
+			&nbsp;
+			<form class="form-inline srch-bg-color" role="form" style="border-radius:6px;">
+				<div class="container">
+				<div class="row">
+					<div class="col-xs-4">
+						<div class="form-group">
+							<div class="input-group input-group-sm">
+								<span class="input-group-addon">Search Forms</span>
+								<input type="text" class="form-control" id="searchVal">
+								<input type="date" class="form-control datepicker" id="searchValDate" style="display: none;">
+			                </div>
+			            </div>
+					</div>
+					<div class="col-xs-5">
+						<div class="btn-group">
+	  						<button type="button" class="btn btn-sm btn-default btn-caret-color" id="srch_dd_label"><%= (params[:searchValue].nil?) ? "FORM NO" : params[:searchValue]%></button>
+	  						<button type="button" class="btn btn-sm btn-default btn-caret2-color dropdown-toggle" data-toggle="dropdown">
+	  							<span class="caret"></span>
+	  						</button>
+	  						<ul class="dropdown-menu" role="menu">
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>CLIENT REFERENCE FILE</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>FORM NO</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>EDITION DATE</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>FORM ID</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>POLICY NAME</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>SUBMITTER COMPANY</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>SUBMITTER NAME</a></li>
+	  							<li onClick="changeDropdownLabel($(this).text(), document.getElementById('srch_dd_label'));changeSearchField(this);"><a>SUBMITTERS EMAIL</a></li>
+	  						</ul>
+	  					</div>
+	  					<div class="form-group">
+							<button type="button" class="btn btn-sm btn-default col-lg-12 btn-search-color" onclick="loadSearchForms('<%= session[:session_id] %>')">Search</button>
+						</div>
+					</div>
+					<div class="col-xs-3">
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+<!-- search bar -->
+
+<div class="clearSpace10"></div>
+
+<p id="notice"></p>
+
+<div class="container" style="border-radius:6px; background-color:#E2E9F5;">
+	<div class="row">
+		<div class="container" id="resultDiv">
+		</div>
+	</div>	
+</div>
+
+<br />

@@ -1,0 +1,27 @@
+<h1>Listing locked_forms</h1>
+
+<table>
+  <tr>
+    <th>Form id</th>
+    <th>User id</th>
+    <th>Session id</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @locked_forms.each do |locked_form| %>
+  <tr>
+    <td><%= locked_form.FORM_ID %></td>
+    <td><%= locked_form.USER_ID %></td>
+    <td><%= locked_form.SESSION_ID %></td>
+    <td><%= link_to 'Show', locked_form %></td>
+    <td><%= link_to 'Edit', edit_locked_form_path(locked_form) %></td>
+    <td><%= link_to 'Destroy', locked_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Locked form', new_locked_form_path %>

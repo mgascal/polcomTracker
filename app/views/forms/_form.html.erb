@@ -1,0 +1,403 @@
+<script>
+	$(document).ready(function(){
+		$('.selectpicker').selectpicker({
+			hideDisabled: true
+		});
+	});
+
+	
+</script>
+<script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  }); 
+
+
+  </script>
+
+<!--<div class="clearSpace10"></div>-->
+<div class="container">
+<div class="row">
+	<!--<form >-->
+        <div class="col-xs-6">
+          
+          <div class="row">
+            <div class="form-group">
+              <label class="col-xs-4">Form ID *</label>
+              <div class="col-xs-8 parsley-container" parsley-validate parsley-bind>
+                <input parsley-type="number" class="form-control required" parsley-required="true" parsley-trigger="change" id="form_FORM_ID" required onblur="javascript:$(this).parsley( 'validate' );"/>
+              </div>
+            </div>
+          </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Revised Item No.</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_REVISED_ITEM_NO">
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Status</label>
+	      <div class="col-xs-8 input-group input-group-sm">
+	        <input type="text" class="form-control" value="<Please select>">
+	        <input type="hidden" id="form_STATUS">
+	        <div class="input-group-btn">
+	          <button type="button" id="btnSelect" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></button>
+	          <ul class="dropdown-menu dropdown-menu-list pull-right" id="uldrop">
+	            <% Status.all.each do |stat| %>
+	      			<li value="<%=stat.status_id %>" onclick="dropDownChange(this)"><a><%=stat.status %></a></li>
+	      		<% end %>
+	          </ul>
+	        </div><!-- /btn-group -->
+	      </div><!-- /input-group -->
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Policy Name</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_POLICY_NAME">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Form Label</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_FORM_LABEL">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Form No.</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_FORM_NO">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Edition Date</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker" id="form_EDITION_DATE">
+	        <span type="date" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>			
+			
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Type of Policy</label>
+	      <div class="col-xs-8 input-group input-group-sm">
+	        <input type="text" class="form-control" value="<Please select>">
+	        <input type="hidden" id="form_TYPE_OF_POLICY">
+	        <div class="input-group-btn">
+	          <button type="button" id="btnSelect" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></button>
+	          <ul class="dropdown-menu dropdown-menu-list pull-right" id="dropdown-menu_form_TYPE_OF_POLICY">
+	            <% PolicyType.all.each do |pol| %>
+	      			<li value="<%=pol.policy_type_id %>" onclick="dropDownChange(this);onChangeLOB(this.value);"><a><%=pol.policy_type %></a></li>
+	      		<% end %>
+	          </ul>
+	        </div><!-- /btn-group -->
+	      </div><!-- /input-group -->
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>
+	  <!--
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">LOB</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_LOB">
+	      </div>
+	    </div>
+	  </div>
+	 -->
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">LOB</label>
+	      <div class="col-xs-8 input-group input-group-sm">
+	        <select id="form_LOB" class="selectpicker form-control" multiple>
+	        	 <% Lob.order("policy_type_id, lob").each do |l| %>
+	      			<option class="pol_type_<%=l.policy_type_id.to_i %>" value="<%=l.lob.to_i %>" onclick="dropDownChange(this)" disabled="disabled"><%=l.lob.to_i %></li>
+	      		<% end %>
+	        </select>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="clearSpace10"></div>
+		
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Type of Document</label>
+	      <div class="col-xs-8 input-group input-group-sm">
+	        <input type="text" class="form-control" value="<Please select>">
+	        <input type="hidden" id="form_TYPE_OF_DOCUMENT">
+	        <div class="input-group-btn">
+	          <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></button>
+	          <ul class="dropdown-menu dropdown-menu-list pull-right" id="dropdown-menu_form_TYPE_OF_DOCUMENT">
+	            <% DocumentType.all.each do |doc| %>
+	      			<li value="<%=doc.document_type_id %>" onclick="dropDownChange(this);showRelatedPolicy(this.value);"><a><%=doc.document_type %></a></li>
+	      		<% end %>
+	          </ul>
+	        </div><!-- /btn-group -->
+	      </div><!-- /input-group -->
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10 forEndorsement"></div>
+	
+	  <div class="row forEndorsement">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Related Policy</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_RELATED_POLICY">
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>
+		
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Type of Submission</label>
+	      <div class="col-xs-8 input-group input-group-sm">
+	        <input type="text" class="form-control" value="<Please select>">
+	        <input type="hidden" id="form_TYPE_OF_SUBMISSION">
+	        <div class="input-group-btn">
+	          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></button>
+	          <ul class="dropdown-menu dropdown-menu-list pull-right" id="dropdown-menu_form_TYPE_OF_SUBMISSION">
+	            <% SubmissionType.all.each do |s| %>
+	      			<li value="<%=s.submission_type_id %>" onclick="dropDownChange(this)"><a><%=s.submission_type %></a></li>
+	      		<% end %>
+	          </ul>
+	        </div><!-- /btn-group -->
+	      </div><!-- /input-group -->
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Submitter Company</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_SUBMITTER_COMPANY">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Submitter Name</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_SUBMITTER_NAME">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Submitters Email</label>
+	      <div class="col-xs-8 parsley-container" parsley-validate parsley-bind>
+	        <input parsley-type="email" parsley-trigger="change" class="form-control" id="form_SUBMITTERS_EMAIL">
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="clearSpace10"></div>
+	  
+	   <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Proprietary</label>
+	      <div class="col-xs-8">
+	        <input type="test" class="form-control" id="form_PROPRIETARY">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	</div>
+	
+	
+	<div class="col-xs-6">
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Client Reference File</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_CLIENT_REFERENCE_FILE">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Date Received</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker"  data-provide="datepicker-inline" data-date-format="yyyy-mm-dd" id="form_DATE_RECEIVED">
+	        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Due Date</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker" id="form_DUE_DATE">
+	        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+
+	      <label class="col-xs-4 control-label">Mapping Completed</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker" id="form_MAPPING_COMPLETED">
+
+	        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Mapped By</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_MAPPED_BY">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Parsing Completed</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker" id="form_PARSING_COMPLETED">
+	        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	   <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Loaded</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker" id="form_LOADED">
+	        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	  
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Client Notified Date</label>
+	      <div class="col-xs-4 input-group input-group-sm">
+	        <input type="date" class="form-control datepicker" id="form_CLIENT_NOTIFIED">
+	        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">New Form ID</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_NEW_FORM_ID">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Text File Name</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_TEXT_FILE_NAME">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">New Text File Name</label>
+	      <div class="col-xs-8">
+	        <input type="text" class="form-control" id="form_NEW_TEXT_FILE_NAME">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">New Policy Name</label>
+	      <div class="col-xs-8">
+	        <textarea class="form-control" id="form_NEW_POLICY_NAME"></textarea>
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="clearSpace10"></div>
+	
+	  <div class="row">
+	    <div class="form-group">
+	      <label class="col-xs-4 control-label">Comments</label>
+	      <div class="col-xs-8">
+	        <textarea class="form-control" id="form_COMMENTS"></textarea>
+	      </div>
+	    </div>
+	  </div>	  
+	</div>
+<!--</form>-->
+</div>
+</div>

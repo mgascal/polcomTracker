@@ -1,0 +1,46 @@
+<br />
+<br />
+
+<p id="notice">
+	<% 
+	if params[:jsAction] == "create" 
+  		notice = "Policy Type was successfully created"
+  	elsif params[:jsAction] == "copy"
+  		notice = "Policy Type was successfully copied"
+  	end 
+  	%>
+	<% if !notice.nil? && notice.length > 0%>
+		<div class="alert alert-success alert-dismissable">
+  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  			<%= notice %>
+		</div>
+	<% end %>
+</p>
+
+
+<%= render 'form' %>
+
+ <div class="row">
+	<div class="form-group">
+	  <div class="col-xs-2 hidden-xs">
+	    &nbsp;
+	  </div>
+	  <div class="col-xs-2">
+	    <button type="button" class="btn btn-default-cancel btn-sm btn-group-justified" onclick="window.location='/policy_types';">Cancel</button>
+	  </div>
+	  <div class="col-xs-2">
+	    <button type="button" class="btn btn-default-save btn-sm btn-group-justified" onclick="updatePolicyType(<%= params[:id] %>, '<%= session[:session_id] %>')">Save</button>
+	  </div>
+	  <div class="col-xs-6 hidden-xs">
+	    &nbsp;
+	  </div>
+	</div>
+ </div>
+          
+<br />
+<br />
+<script>
+	$(document).ready(function(){
+		processPolicyTypeData(<%= params[:id] %>, '<%= session[:session_id]%>');
+	});
+</script>

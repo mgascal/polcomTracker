@@ -1,0 +1,77 @@
+  <script>
+    $(function() {
+    $( ".datepicker" ).datepicker();
+    }); 
+  </script>
+  <div class="clearSpace20"></div>
+
+  <div class="container">
+      <div class="row srch-bg-color" style="border-radius:6px;">
+        <div class="form-group">
+          <div class="col-xs-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-addon">Select Date</span>
+              <input type="date" class="form-control datepicker" id="reportDateFrom">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-addon">To</span>
+              <input type="date" class="form-control datepicker" id="reportDateTo">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </div>
+          <div class="col-xs-3">
+	          <div class="btn-group">
+					<button type="button" class="btn btn-sm btn-default btn-caret-color" id="date_dd_label">UPDATED DATE</button>
+					<button type="button" class="btn btn-sm btn-default btn-caret2-color dropdown-toggle" data-toggle="dropdown">	
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li onClick="changeDateDropdown(this, document.getElementById('date_dd_label'));" ><a>UPDATED DATE</a></li>
+						<li onClick="changeDateDropdown(this, document.getElementById('date_dd_label'));" ><a>CREATED DATE</a></li>
+						<li onClick="changeDateDropdown(this, document.getElementById('date_dd_label'));"><a>RECEIVED DATE</a></li>
+						<li onClick="changeDateDropdown(this, document.getElementById('date_dd_label'));"><a>ANALYZED DATE</a></li>
+						<li onClick="changeDateDropdown(this, document.getElementById('date_dd_label'));"><a>PARSED DATE</a></li>
+						<li onClick="changeDateDropdown(this, document.getElementById('date_dd_label'));"><a>LOADED DATE</a></li>
+					</ul>
+			  </div>
+		 </div>
+          <div class="col-xs-2">
+            <button type="button" class="btn btn-default-cancel btn-sm btn-group-justified" onclick="loadGenerateReport('<%= session[:session_id]%>')">Run</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	<div class="clearSpace20"></div>
+      
+  	<div class="container">
+      <div class="row">
+ 	      <div id="reportTable" class="container">
+    	  </div>
+      </div>
+  	</div>
+    
+      
+     <div class="clearSpace20"></div>
+
+      <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-default-cancel btn-sm btn-group-justified" onclick="downloadExcel()">Download</button>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+
+<script>
+  var d = new Date();
+  date = (d.getMonth() + 1) < 10 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1) ;
+  date += "/";
+  date += (d.getDate()) < 10 ? "0" + (d.getDate()) : (d.getDate());
+  date += "/";
+  date += d.getFullYear();
+  //alert(date);
+  $("input[type='date']").val(date);
+</script>
+

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Policy type:</b>
+  <%= @policy_type.POLICY_TYPE %>
+</p>
+
+<p>
+  <b>Create date:</b>
+  <%= @policy_type.CREATE_DATE %>
+</p>
+
+<p>
+  <b>Create by:</b>
+  <%= @policy_type.CREATE_BY %>
+</p>
+
+<p>
+  <b>Updated date:</b>
+  <%= @policy_type.UPDATED_DATE %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @policy_type.UPDATED_BY %>
+</p>
+
+
+<%= link_to 'Edit', edit_policy_type_path(@policy_type) %> |
+<%= link_to 'Back', policy_types_path %>

@@ -1,0 +1,25 @@
+<br />
+
+<p id="notice"></p>
+
+<%= render 'form' %>
+
+<div class="row">
+	<div class="form-group">
+	  <div class="col-xs-2 hidden-xs">
+	    &nbsp;
+	  </div>
+	  <div class="col-xs-2">
+	    <button type="button" class="btn btn-default-cancel btn-sm btn-group-justified" onclick="window.location='/statuses';">Cancel</button>
+	  </div>
+	  <div class="col-xs-2">
+	    <button type="button" class="btn btn-default-save btn-sm btn-group-justified" onclick="createStatus('<%= session[:session_id] %>')">Save</button>
+	  </div>
+	  <div class="col-xs-6 hidden-xs">
+	    &nbsp;
+	  </div>
+	</div>
+ </div>
+ 
+
+<br />

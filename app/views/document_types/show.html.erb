@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Document type:</b>
+  <%= @document_type.DOCUMENT_TYPE %>
+</p>
+
+<p>
+  <b>Create date:</b>
+  <%= @document_type.CREATE_DATE %>
+</p>
+
+<p>
+  <b>Create by:</b>
+  <%= @document_type.CREATE_BY %>
+</p>
+
+<p>
+  <b>Updated date:</b>
+  <%= @document_type.UPDATED_DATE %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @document_type.UPDATED_BY %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_type_path(@document_type) %> |
+<%= link_to 'Back', document_types_path %>

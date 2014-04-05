@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  SUBMISSION_TYPE: MyString
+  CREATE_DATE: 2013-11-18
+  CREATE_BY: MyString
+  UPDATED_DATE: 2013-11-18
+  UPDATED_BY: MyString
+
+two:
+  SUBMISSION_TYPE: MyString
+  CREATE_DATE: 2013-11-18
+  CREATE_BY: MyString
+  UPDATED_DATE: 2013-11-18
+  UPDATED_BY: MyString

@@ -1,0 +1,29 @@
+<%= form_for(@locked_form) do |f| %>
+  <% if @locked_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@locked_form.errors.count, "error") %> prohibited this locked_form from being saved:</h2>
+
+      <ul>
+      <% @locked_form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :FORM_ID %><br />
+    <%= f.number_field :FORM_ID %>
+  </div>
+  <div class="field">
+    <%= f.label :USER_ID %><br />
+    <%= f.number_field :USER_ID %>
+  </div>
+  <div class="field">
+    <%= f.label :SESSION_ID %><br />
+    <%= f.text_field :SESSION_ID %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

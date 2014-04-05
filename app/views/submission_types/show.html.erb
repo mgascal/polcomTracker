@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Submission type:</b>
+  <%= @submission_type.SUBMISSION_TYPE %>
+</p>
+
+<p>
+  <b>Create date:</b>
+  <%= @submission_type.CREATE_DATE %>
+</p>
+
+<p>
+  <b>Create by:</b>
+  <%= @submission_type.CREATE_BY %>
+</p>
+
+<p>
+  <b>Updated date:</b>
+  <%= @submission_type.UPDATED_DATE %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%= @submission_type.UPDATED_BY %>
+</p>
+
+
+<%= link_to 'Edit', edit_submission_type_path(@submission_type) %> |
+<%= link_to 'Back', submission_types_path %>
